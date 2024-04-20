@@ -3,34 +3,34 @@ import Link from 'next/link'
 
 function RegisterForm() {
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    //     const formData = new FormData(e.currentTarget);
-    //     try {
-    //         const response = await fetch('http://localhost:5141/api/Auth/register', {
-    //             method: 'POST',
-    //             headers: {
-    //                 Accept: 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: formData,
-    //             mode: "cors"
-    //         });
+        const formData = new FormData(e.currentTarget);
+        try {
+            const response = await fetch('https://cinecircleapi.azurewebsites.net/api/Auth/register', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: formData,
+                mode: "cors"
+            });
 
-    //         if (response.ok) {
-    //             console.log(await response.json());
-    //         } else {
-    //             console.log(response);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error sending form data:', error);
-    //         // Handle error
-    //     }
-    // }
+            if (response.ok) {
+                console.log(await response.json());
+            } else {
+                console.log(response);
+            }
+        } catch (error) {
+            console.error('Error sending form data:', error);
+            // Handle error
+        }
+    }
 
     return (
-        <form className='max-w-[700] justify-center px-4 flex flex-col items-center h-full bg-[#1F1D36]'>
+        <form onSubmit={(e) => handleSubmit(e)} className='max-w-[700] justify-center px-4 flex flex-col items-center h-full bg-[#1F1D36]'>
             <Image
                 priority={true}
                 src={"/assets/cinecircle-01.png"}
