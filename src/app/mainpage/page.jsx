@@ -1,4 +1,3 @@
-import tmdb from '@/components/TMDB';
 import TrendingMovies from '@/components/TrendingMovies';
 
 const page = async () => {
